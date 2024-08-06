@@ -51,3 +51,20 @@ $ sqlc generate -f ./internal/store/pgstore/sqlc.yaml
 $ go mod tidy
 
 ```
+
+# GO GENERATE
+
+create a gen.go file with this content
+
+```go
+package gen
+
+//go:generate go run ./cmd/tools/terndotenv/main.go
+//go:generate sqlc generate -f ./internal/store/pgstore/sqlc.yaml
+```
+
+execute this command
+
+```bash
+$ go generate ./...
+```
